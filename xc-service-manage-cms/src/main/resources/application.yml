@@ -1,0 +1,13 @@
+server:
+  port: 31001
+spring:
+  application:
+    name: xc-service-manage-cms
+    freemarker:
+      cache: false
+      settings:
+        template_update_dalay: 0
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017
+      database: xc_cmc
