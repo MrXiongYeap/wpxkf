@@ -45,7 +45,6 @@ public class Consumer01 {
                 System.out.println("receive message:"+message);
             }
         };
-
         //监听对列
         channel.basicConsume(QUEUE,true,defaultConsumer);
     }

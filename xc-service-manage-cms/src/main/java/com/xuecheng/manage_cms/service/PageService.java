@@ -172,8 +172,7 @@ public class PageService {
     public CmsConfig getConfigById(String id) {
         Optional<CmsConfig> optional = cmsConfigRepository.findById(id);
         if (optional.isPresent()) {
-            CmsConfig cmsConfig = optional.get();
-            return cmsConfig;
+            return optional.get();
         }
         return null;
     }
@@ -212,7 +211,6 @@ public class PageService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
     //获取页面模版信息
@@ -231,7 +229,7 @@ public class PageService {
         if (optional.isPresent()) {
             CmsTemplate cmsTemplate = optional.get();
             String templateFileId = cmsTemplate.getTemplateFileId();
-            GridFSFile gridFSFile = gridFsTemplate.findOne(Query.query(Criteria.where("id").is(templateFileId)));
+            GridFSFile gridFSFile = gridFsTemplate.findOne(Query.query(Criteria.where("_id").is(templateFileId)));
             GridFSDownloadStream gridFSDownloadStream = gridFSBucket.openDownloadStream(gridFSFile.getObjectId());
             GridFsResource gridFsResource = new GridFsResource(gridFSFile, gridFSDownloadStream);
             try {

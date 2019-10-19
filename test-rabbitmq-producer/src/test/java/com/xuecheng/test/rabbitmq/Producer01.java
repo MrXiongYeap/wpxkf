@@ -37,7 +37,7 @@ public class Producer01 {
             //消息内容
             String message="hello world 心梦无痕";
             channel.basicPublish("",QUEUE,null,message.getBytes());
-            System.out.println("send to mq"+message);
+            System.out.println("send to mq"+message+"1111");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
